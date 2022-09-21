@@ -15,22 +15,26 @@ namespace RecruitManager.Models
         /// <summary>
         /// 게시판이름(확장) : Notice, Free
         /// </summary>
+        [Display(Name = "게시판 이름")]
         [MaxLength(50)]
         public string? BoardName { get; set; }
         /// <summary>
         /// 해당 게시판의 게시물 번호
         /// </summary>
+        [Display(Name = "게시판 번호")]
         public int BoardNum { get; set; }
         /// <summary>
         /// 게시판 제목(이벤트 제목)
         /// </summary>
         [MaxLength(150)]
+        [Display(Name = "게시물 이름")]
         public string? BoardTitle { get; set; }
         /// <summary>
         /// 내용 복사
         /// </summary>
         [MaxLength(4000)]
-        public string? Content { get; set; }
+        [Display(Name = "게시물 내용")]
+        public string? BoardContent { get; set; }
         /// <summary>
         /// 생성일
         /// </summary>
