@@ -17,11 +17,14 @@ namespace RecruitManager.Models
         /// </summary>
         [Display(Name = "게시판 이름")]
         [MaxLength(50)]
+        [Required(ErrorMessage = "게시판 이름을 입력하세요.")]
         public string? BoardName { get; set; }
         /// <summary>
         /// 해당 게시판의 게시물 번호
         /// </summary>
         [Display(Name = "게시판 번호")]
+        [Required(ErrorMessage = "게시판 번호를 입력하세요.")]
+        [Range(0, int.MaxValue, ErrorMessage = "숫자값을 입력하세요.")]
         public int BoardNum { get; set; }
         /// <summary>
         /// 게시판 제목(이벤트 제목)
