@@ -11,6 +11,7 @@ namespace RecruitManager.Models
         /// <summary>
         /// 비고
         /// </summary>
+        [Display(Name = "비고")]
         public string? Remarks { get; set; }
         /// <summary>
         /// 게시판이름(확장) : Notice, Free
@@ -45,18 +46,26 @@ namespace RecruitManager.Models
         /// <summary>
         /// 시작일
         /// </summary>
+
+        [Display(Name = "이벤트 표시 시작일")]
+        [DataType(DataType.Date)]
         public DateTime? StartDate { get; set; }
         /// <summary>
         /// 등록 시점: 1월 1일 0시 0분으로 설정
         /// </summary>
+        [Display(Name = "이벤트 등록 시작일")]
+        [DataType(DataType.Date)]
         public DateTime? EventDate { get; set; }
         /// <summary>
         /// 종료일
         /// </summary>
+        [Display(Name = "이벤트 등록 종료일")]
+        [DataType(DataType.Date)]
         public DateTime? EndDate { get; set; }
         /// <summary>
         /// 등록자 수: 1000명으로 등록자 수
         /// </summary>
+        [Display(Name = "선착순 최대 등록자 수")]
         public int MaxCount { get; set; }
     }
 }
