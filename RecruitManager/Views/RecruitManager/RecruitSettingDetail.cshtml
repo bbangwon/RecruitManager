@@ -5,7 +5,7 @@
 <a href="/RecruitManager/RecruitSettingList" class="btn btn-primary">모집 설정 리스트</a>
 
 <form asp-controller="RecruitManager"
-      asp-action="RecruitSettingEdit"
+      asp-action="RecruitSettingEditOrDelete"
       method="post"
       class="form-horizontal"
       role="form">
@@ -70,7 +70,26 @@
     <input type="hidden" asp-for="CreationDate" />
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">수정</button>
+            <button type="submit" class="btn btn-primary" 
+                    id="btnUpdate" 
+                    name="action" value="update">
+            수정
+            </button>
+            <button type="submit" class="btn btn-danger"
+                    name="action" value="delete" 
+                    onclick="return confirm('삭제하시겠습니까?');">
+            삭제
+            </button>
         </div>
     </div>
 </form>
+
+@section scripts {
+    <script>
+        $(function () {
+            $('#btnUpdate').click(function () {
+                return confirm('수정하시겠습니까?');
+            });
+        });
+    </script>
+}

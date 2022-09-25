@@ -53,5 +53,16 @@ namespace RecruitManager.Services
 
             return model;
         }
+
+        public void Remove(int id)
+        {
+            var recruitSetting = GetById(id);
+
+            if(recruitSetting != null)
+            {
+                this.dbContext.RecruitSettings?.Remove(recruitSetting);
+                this.dbContext.SaveChanges();
+            }            
+        }
     }
 }

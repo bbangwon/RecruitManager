@@ -70,14 +70,26 @@ namespace RecruitManager.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult RecruitSettingEdit(RecruitSetting model)
+        public IActionResult RecruitSettingEditOrDelete(RecruitSetting model, string action)
         {
-            if(ModelState.IsValid)
+            if(action == "update")
             {
-                this.repository.Update(model);
-            }
+                if (ModelState.IsValid)
+                {
+                    this.repository.Update(model);
+                }
 
-            return RedirectToAction(nameof(RecruitSettingDetail), new { model.Id });
+                return RedirectToAction(nameof(RecruitSettingDetail), new { model.Id });
+            }
+            else
+            {
+                if(ModelState.IsValid)
+                {
+                    this.repository.Remove(model.Id);
+                }
+
+                return RedirectToAction(nameof(RecruitSettingList));
+            }
         }
     }
 }
