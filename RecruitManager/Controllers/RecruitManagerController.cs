@@ -91,5 +91,24 @@ namespace RecruitManager.Controllers
                 return RedirectToAction(nameof(RecruitSettingList));
             }
         }
+
+        /// <summary>
+        /// 쿼리 스트링 받기 [FromQuery] 특성
+        /// </summary>
+        /// <param name="boardName"></param>
+        /// <param name="boardNum"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult BoardView(
+            [FromQuery]string boardName, [FromQuery]int boardNum)
+        {
+            ViewData["BoardName"] = boardName;
+            ViewData["BoardNum"] = HttpContext.Request.Query["BoardNum"];
+
+            ViewBag.IsRecruitSettings 
+                = repository.IsRecruitSettings(boardName, boardNum);
+
+            return View();
+        }
     }
 }

@@ -64,5 +64,18 @@ namespace RecruitManager.Services
                 this.dbContext.SaveChanges();
             }            
         }
+
+        /// <summary>
+        /// 특정 게시판에 대한 모집 관련 세부 설정이 되었는지 안되었는지 확인
+        /// </summary>
+        /// <param name="boardName"></param>
+        /// <param name="boardNum"></param>
+        /// <returns></returns>
+        public bool IsRecruitSettings(string boardName, int boardNum)
+        {
+            return this.dbContext.RecruitSettings?
+                .Any(rs => rs.BoardName == boardName && rs.BoardNum == boardNum)
+                ?? false;
+        }
     }
 }
