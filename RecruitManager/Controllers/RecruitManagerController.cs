@@ -41,7 +41,9 @@ namespace RecruitManager.Controllers
 
         public IActionResult RecruitSettingList()
         {
-            return View();
+            var recruits = repository.GetAll();
+
+            return View(recruits);
         }
     }
 }
