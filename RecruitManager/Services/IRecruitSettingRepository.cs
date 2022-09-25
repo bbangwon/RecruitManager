@@ -6,5 +6,6 @@ namespace RecruitManager.Services
     {
         RecruitSetting Add(RecruitSetting model);
         List<RecruitSetting>? GetAll();
+        RecruitSetting? GetById(int id);
     }
 }

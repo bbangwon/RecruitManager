@@ -29,5 +29,11 @@ namespace RecruitManager.Services
 
             return model;
         }
+
+        public RecruitSetting? GetById(int id)
+        {
+            return this.dbContext.RecruitSettings?
+                .SingleOrDefault(rs => rs.Id == id);
+        }
     }
 }
