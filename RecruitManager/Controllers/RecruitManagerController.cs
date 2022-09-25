@@ -32,7 +32,7 @@ namespace RecruitManager.Controllers
             {
                 this.repository.Add(model);
 
-                return View(nameof(RecruitSettingList));
+                return RedirectToAction(nameof(RecruitSettingList));
             }
 
             return View(model);
@@ -72,6 +72,11 @@ namespace RecruitManager.Controllers
         [HttpPost]
         public IActionResult RecruitSettingEdit(RecruitSetting model)
         {
+            if(ModelState.IsValid)
+            {
+                this.repository.Update(model);
+            }
+
             return RedirectToAction(nameof(RecruitSettingDetail), new { model.Id });
         }
     }

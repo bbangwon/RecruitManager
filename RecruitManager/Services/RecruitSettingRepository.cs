@@ -30,10 +30,28 @@ namespace RecruitManager.Services
             return model;
         }
 
+        /// <summary>
+        /// 상세
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public RecruitSetting? GetById(int id)
         {
             return this.dbContext.RecruitSettings?
                 .SingleOrDefault(rs => rs.Id == id);
+        }
+
+        /// <summary>
+        /// 수정
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public RecruitSetting Update(RecruitSetting model)
+        {
+            this.dbContext.RecruitSettings?.Update(model);
+            this.dbContext.SaveChanges();
+
+            return model;
         }
     }
 }
