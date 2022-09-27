@@ -31,7 +31,7 @@ namespace RecruitManager.Models
         /// 게시판 제목(이벤트 제목)
         /// </summary>
         [MaxLength(150)]
-        [Display(Name = "게시물 이름")]
+        [Display(Name = "게시물 제목")]
         public string? BoardTitle { get; set; }
         /// <summary>
         /// 내용 복사
@@ -42,6 +42,7 @@ namespace RecruitManager.Models
         /// <summary>
         /// 생성일
         /// </summary>
+        [Display(Name = "등록일")]
         public DateTimeOffset CreationDate { get; set; }    //Default GetDate()
         /// <summary>
         /// 시작일

@@ -11,6 +11,7 @@ namespace RecruitManager.Data
         }
 
         public DbSet<RecruitSetting>? RecruitSettings { get; set; }
+        public DbSet<RecruitRegistration>? RecruitRegistrations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +36,15 @@ namespace RecruitManager.Data
             recruitSetting
                 .Property(rs => rs.MaxCount)
                 .HasDefaultValue(1000);
+
+
+
+
+            var recruitRegistrations = modelBuilder.Entity<RecruitRegistration>();
+
+            recruitRegistrations
+                .Property(rr => rr.CreationDate)
+                .HasDefaultValueSql("GetDate()");
 
             base.OnModelCreating(modelBuilder);
         }
