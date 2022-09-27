@@ -15,6 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IRecruitSettingRepository, RecruitSettingRepository>();
+builder.Services.AddTransient<IRecruitRegistrationRepository, RecruitRegistrationRepository>();
 
 var app = builder.Build();
 

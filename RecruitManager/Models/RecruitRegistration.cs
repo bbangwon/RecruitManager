@@ -6,6 +6,9 @@ namespace RecruitManager.Models
     public class RecruitRegistration
     {
         public int Id { get; set; }
+        /// <summary>
+        /// RecruitSettings 테이블의 Id 값
+        /// </summary>
         public int? RecruitSettingId { get; set; }
 
         [Display(Name = "게시판 이름")]
