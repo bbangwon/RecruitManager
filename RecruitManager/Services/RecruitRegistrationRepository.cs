@@ -70,7 +70,7 @@ namespace RecruitManager.Services
         public void RemoveRecruitRegistration(string boardName, int boardNum, string username)
         {
             var entities = this.context.RecruitRegistrations?
-                .Where(rr => rr.BoardName == boardName && rr.BoardNum == boardNum && rr.Username == username)
+                .Where(rr => rr.BoardName == boardName && rr.BoardNum == boardNum && rr.Username == username);
 
             if(entities != null)
             {
