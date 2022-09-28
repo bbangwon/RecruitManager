@@ -11,3 +11,16 @@ else
 {
     <p>미 설정</p>
 }
+
+
+@if (ViewBag.IsClosedRecruit)
+{
+    <p>종료된 모집입니다.</p>
+}
+else
+{
+    <p>현재 진행중인 모집입니다.</p>
+}
+
+<hr />
+<a href="/RecruitManager/">메인</a>

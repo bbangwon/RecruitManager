@@ -77,5 +77,14 @@ namespace RecruitManager.Services
                 .Any(rs => rs.BoardName == boardName && rs.BoardNum == boardNum)
                 ?? false;
         }
+
+        public bool IsClosedRecruit(string boardName, int boardNum)
+        {
+            var entity = this.dbContext.RecruitSettings?
+                .SingleOrDefault(rs => rs.BoardName == boardName && rs.BoardNum == boardNum);
+
+            var cnt = entity?.MaxCount ?? 0;
+            return cnt == 0;
+        }
     }
 }
