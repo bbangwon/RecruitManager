@@ -12,5 +12,6 @@ namespace RecruitManager.Services
         RecruitSetting Update(RecruitSetting model);
 
         bool IsClosedRecruit(string boardName, int boardNum);
+        bool IsFinishedRecruit(string boardName, int boardNum);
     }
 }

@@ -86,5 +86,32 @@ namespace RecruitManager.Services
             var cnt = entity?.MaxCount ?? 0;
             return cnt == 0;
         }
+
+        /// <summary>
+        /// 모집 마감 여부 확인
+        /// </summary>
+        /// <param name="boardName"></param>
+        /// <param name="boardNum"></param>
+        /// <returns></returns>
+        public bool IsFinishedRecruit(string boardName, int boardNum)
+        {
+            // 최대 모집 카운트
+            var entity = this.dbContext.RecruitSettings?
+                .SingleOrDefault(rs => rs.BoardName == boardName && rs.BoardNum == boardNum);
+
+            // 모집 등록 카운트
+            var cnt = this.dbContext.RecruitRegistrations?
+                .Count(rs => rs.BoardName == boardName && rs.BoardNum == boardNum);
+
+            if (entity != null)
+            {
+                // 모집에 등록된 숫자가 같거나, 더 많으면 마감된 모집으로 봄
+                if (entity.MaxCount != 0 && entity.MaxCount <= cnt)
+                {
+                    return true;
+                }
+            }              
+            return false;
+        }
     }
 }

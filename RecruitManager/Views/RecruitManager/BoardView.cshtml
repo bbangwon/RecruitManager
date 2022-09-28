@@ -20,6 +20,15 @@ else
 else
 {
     <p>현재 진행중인 모집입니다.</p>
+
+    @if(ViewBag.IsFinishedRecruit)
+    {
+        <p>모집 마감되었습니다.</p>
+    }
+    else
+    {
+        <p>모집중입니다.</p>
+    }
 }
 
 <hr />

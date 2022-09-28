@@ -111,6 +111,9 @@ namespace RecruitManager.Controllers
             ViewBag.IsClosedRecruit 
                 = repository.IsClosedRecruit(boardName, boardNum);
 
+            ViewBag.IsFinishedRecruit
+                = repository.IsFinishedRecruit(boardName, boardNum);
+
             return View();
         }
     }
